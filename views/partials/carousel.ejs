@@ -1,6 +1,5 @@
 <% const firstArticle =articles[0] %> <% const secondArticle = articles[1] %> <% const thirdArticle
 = articles[2] %>
-
 <section class="container">
   <div
     class="carousel carousel-dark slide w-100 mx-auto"
@@ -8,9 +7,9 @@
     id="carouselExampleControls"
   >
     <div class="carousel-inner my-5">
-      <div class="carousel-item active">
-        <% if (firstArticle.image.includes("http")) {%>
-        <a class="text-decoration-none" href="/articulos/<%= firstArticle.id %>">
+      <a class="text-decoration-none" href="/articulos/<%= firstArticle.id %>">
+        <div class="carousel-item active">
+          <% if (firstArticle.image.includes("http")) {%>
           <img
             src="<%=firstArticle.image  %>"
             class="img-fluid d-block mx-auto rounded imageCar"
@@ -18,7 +17,7 @@
           />
           <%} else {%>
           <img
-            src="/img/<%= firstArticle.image  %>"
+            src="/img/articles/<%= firstArticle.image  %>"
             class="img-fluid d-block mx-auto rounded imageCar"
             alt="img-articulo"
           />
@@ -28,11 +27,11 @@
             <h5 class="text-white fs-3"><%= firstArticle.title%></h5>
             <p class="text-white"><%= firstArticle.content.slice(0,12) %></p>
           </div>
-        </a>
-      </div>
-      <div class="carousel-item">
-        <% if (secondArticle.image.includes("http")) {%>
-        <a class="text-decoration-none" href="/articulos/<%= secondArticle.id %>">
+        </div>
+      </a>
+      <a class="text-decoration-none" href="/articulos/<%= secondArticle.id %>">
+        <div class="carousel-item">
+          <% if (secondArticle.image.includes("http")) {%>
           <img
             src="<%=secondArticle.image  %>"
             class="img-fluid d-block mx-auto rounded imageCar"
@@ -40,7 +39,7 @@
           />
           <%} else {%>
           <img
-            src="/img/<%= secondArticle.image  %>"
+            src="/img/articles/<%= secondArticle.image  %>"
             class="img-fluid d-block mx-auto rounded imageCar"
             alt="img-articulo"
           />
@@ -50,11 +49,12 @@
             <h5 class="text-white fs-3"><%= secondArticle.title%></h5>
             <p class="text-white"><%= secondArticle.content.slice(0,12) %></p>
           </div>
-        </a>
-      </div>
-      <div class="carousel-item">
-        <% if (thirdArticle.image.includes("http")) {%>
-        <a class="text-decoration-none" href="/articulos/<%= thirdArticle.id %>">
+        </div>
+      </a>
+
+      <a class="text-decoration-none" href="/articulos/<%= firstArticle.id %>">
+        <div class="carousel-item">
+          <% if (thirdArticle.image.includes("http")) {%>
           <img
             src="<%=thirdArticle.image  %>"
             class="img-fluid d-block mx-auto rounded imageCar"
@@ -62,7 +62,7 @@
           />
           <%} else {%>
           <img
-            src="/img/<%= thirdArticle.image  %>"
+            src="/img/articles/<%= thirdArticle.image  %>"
             class="img-fluid d-block mx-auto rounded imageCar"
             alt="img-articulo"
           />
@@ -72,8 +72,8 @@
             <h5 class="text-white fs-3"><%= thirdArticle.title%></h5>
             <p class="text-white"><%= thirdArticle.content.slice(0,12) %></p>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
 
     <button

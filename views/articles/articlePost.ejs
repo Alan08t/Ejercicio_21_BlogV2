@@ -1,0 +1,17 @@
+<h1 class="fw-bold mt-4 text-center"><%= article.title %></h1>
+<p class="fst-italic text-center">| <%= article.user.firstname %> <%= article.user.lastname %></p>
+<p class="fst-italic text-center">| <%= article.user.email %></p>
+<p class="fst-italic mb-5 text-center">| <%=format(article.createdAt,"dd MMMM yyyy") %></p>
+
+<% if (article.image.includes("http")) {%>
+<img src="<%= article.image  %>" class="img-fluid d-block mx-auto rounded" alt="img-articulo" />
+<%} else {%>
+<img
+  src="/img/articles/<%= article.image  %>"
+  class="img-fluid d-block mx-auto rounded"
+  alt="img-articulo"
+/>
+<%}%>
+
+<p class="text-start my-4 fs-5 fw-light lh-lg"><%= article.content %></p>
+<hr class="mb-5" />

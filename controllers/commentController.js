@@ -6,13 +6,12 @@ async function store(req, res) {
   const { comment } = req.body;
   const data = await Comment.create({
     content: comment,
-    userId: Math.floor(Math.random() * 11),
+    userId: req.user.id,
     articleId: articleId,
-  
   });
   data.save();
 
-  req.flash('message', 'Comment Added Successfully');
+  req.flash("message", "Comment Added Successfully");
   res.redirect(`/articulos/${articleId}`);
 }
 
@@ -23,8 +22,17 @@ async function edit(req, res) {}
 async function update(req, res) {}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
-
+async function destroy(req, res) {
+  const commentId = req.params.id;
+  await Comment.destroy({
+    where: {
+      id: commentId,
+    },
+    force: true,
+  });
+  req.flash("message", "Comment Deleted Successfully");
+  res.redirect("/usuarios/" + req.user.id);
+}
 // Otros handlers...
 // ...
 

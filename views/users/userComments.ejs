@@ -1,0 +1,18 @@
+<% for (const comment of comments) { %>
+<div
+  class="row w-75 rounded gy-2 bg-dark bg-gradient my-3 py-2 mx-auto position-relative"
+  data-bs-theme="dark"
+>
+  <a class="btn-close" href="/comentarios/<%= comment.id %>/eliminar">
+    <button type="button" class="d-none" aria-label="Close"></button>
+  </a>
+  <div class="col-2">
+    <img src="<%= user.avatar  %>" class="img-fluid rounded-circle" alt="img-avatar" />
+  </div>
+  <div class="col-10 text-white">
+    <h5><%= user.firstname%></h5>
+    <p class="fw-light"><%= comment.content %></p>
+    <small class="fst-italic"><%= formatDistance(new Date(), comment.createdAt) %></small>
+  </div>
+</div>
+<% } %>

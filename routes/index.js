@@ -21,6 +21,14 @@ const apiRoutes = require("./apiRoutes");
 const publicRoutes = require("./publicRoutes");
 const privateRoutes = require("./privateRoutes");
 
+// require middlawers
+const makeUserAvailableInViews = require("../middlewares/makeUserAvailableInViews");
+const messageFlash = require("../middlewares/messageFlash");
+
+// Authentications
+const isAuthenticatedAdmin = require("../middlewares/isAuthenticatedAdmin");
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
+
 module.exports = (app) => {
   /**
    * Notar que si el sitio está en español, tiene sentido que las URLs que se
@@ -29,11 +37,16 @@ module.exports = (app) => {
    * en inglés.
    */
 
-  app.use("/usuarios", userRoutes);
+  app.use(makeUserAvailableInViews);
+  app.use(messageFlash);
+  app.use("/", publicRoutes);
   app.use("/articulos", articleRoutes);
+  app.use("/usuarios", userRoutes);
+
+  app.use(ensureAuthenticated);
   app.use("/comentarios", commentRoutes);
   app.use("/api", apiRoutes);
 
-  app.use("/", publicRoutes);
+  app.use(isAuthenticatedAdmin);
   app.use("/panel", privateRoutes);
 };

@@ -1,0 +1,32 @@
+<%for(let article of articles) { %>
+
+<div class="row my-2">
+  <div class="col-12 col-md-4">
+    <a class="text-decoration-none" href="/articulos/<%= article.id %>">
+      <% if (article.image.includes("http")) {%>
+      <img src="<%= article.image  %>" class="img-fluid rounded m-2" alt="img-articulo" />
+      <%} else {%>
+      <img
+        src="/img/articles/<%= article.image  %>"
+        class="img-fluid rounded m-2"
+        alt="img-articulo"
+      />
+      <%}%>
+    </a>
+  </div>
+  <div class="col-12 col-md-8 mb-5">
+    <div class="mb-2">
+      <a class="text-decoration-none" href="/articulos/<%= article.id %>">
+        <h3 class="fw-bold fs-2 text-black"><%= article.title %></h3>
+      </a>
+      <% const content = article.content.slice(0, 80) %>
+      <p class=""><%= content %>...</p>
+      <div></div>
+    </div>
+    <hr class="border-bottom-2 border-dark" />
+
+    <span class="fst-italic"><%=format(article.createdAt,"dd MMMM yyyy") %></span>
+  </div>
+</div>
+
+<% } %>

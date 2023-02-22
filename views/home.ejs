@@ -14,24 +14,18 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
+    <%-include("partials/navbar") %> <%-include("partials/carousel") %>
 
-    <%-include("partials/navbar") %>
-
-    
-     <%-include("partials/carousel") %>
-    
-
-    <div class="container mt-5">
-          <!-- Flash -->
-    <%-include("partials/messages") %>
-
-      <main>
-        <section class="container"><%- include('partials/articles') %></section>
-      </main>
+    <div class="container">
+      <!-- Flash -->
+      <%-include("partials/messages") %>
     </div>
 
-    <%-include("partials/footer") %>
+    <main>
+      <section class="container"><%- include('articles/articles') %></section>
+    </main>
 
+    <%-include("partials/footer") %>
 
     <script src="js/app.js"></script>
     <script

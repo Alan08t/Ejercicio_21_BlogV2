@@ -6,16 +6,6 @@ faker.locale = "es";
 
 module.exports = async () => {
   const users = [];
-  /*
-  users.push({
-    firstname: Pepito,
-    lastname: Gonzalez,
-    email: pepito@gmail.com,
-    avatar: http:,
-    username: pepigon,
-    password: root,
-  });
-  */
 
   for (let i = 0; i < 10; i++) {
     users.push({

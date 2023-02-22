@@ -1,0 +1,84 @@
+<%- include('./userHeader.ejs') %>
+
+<section class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link text-secondary fs-4 p-3 active"
+        id="user-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#user-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="user-tab-pane"
+        aria-selected="true"
+      >
+        Datos del usuario
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link text-secondary fs-4 p-3"
+        id="articles-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#articles-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="articles-tab-pane"
+        aria-selected="false"
+      >
+        Articulos
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link text-secondary fs-4 p-3"
+        id="comments-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#comments-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="comments-tab-pane"
+        aria-selected="false"
+      >
+        Comments
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content bg-white py-4 rounded-1" id="myTabContent">
+    <div
+      class="tab-pane fade show active"
+      id="user-tab-pane"
+      role="tabpanel"
+      aria-labelledby="user-tab"
+      tabindex="0"
+    >
+      Datos del usuario
+    </div>
+    <div
+      class="tab-pane fade"
+      id="articles-tab-pane"
+      role="tabpanel"
+      aria-labelledby="articles-tab"
+      tabindex="0"
+    >
+      <%- include('./userArticles.ejs') %>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="comments-tab-pane"
+      role="tabpanel"
+      aria-labelledby="comments-tab"
+      tabindex="0"
+    >
+      <%- include('./userComments.ejs') %>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="disabled-tab-pane"
+      role="tabpanel"
+      aria-labelledby="disabled-tab"
+      tabindex="0"
+    ></div>
+  </div>
+</section>

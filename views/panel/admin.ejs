@@ -15,57 +15,66 @@
   </head>
   <body>
     <%-include("../partials/navbar") %>
- 
 
     <section class="container">
+      <!-- Flash -->
+      <%-include("../partials/messages") %>
 
-         <!-- Flash -->
-    <%-include("../partials/messages") %>
-    
       <div class="d-flex justify-content-between pt-4">
-        <h2 class="d-inline">List of articles.</h2>
-        <a href="/panel/admin/crear"><button class="btn btn-success btn-m">New</button></a>
-      </div>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover border shadow mt-5">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Titulo</th>
-              <th scope="col ">Content</th>
-              <th scope="col">Image</th>
-              <th scope="çol">UserID</th>
-              <th scope="çol">CreatedAt</th>
-              <th scope="çol">UpdatedAt</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for(item of articles) { %> <% if (item.userId === user.id) { %>
-            <tr>
-              <th scope="row"><%= item.id %></th>
-              <td><%= item.title %></td>
-              <td><%= item.content.slice(0, 100) %>...</td>
-              <td><%= item.image %></td>
-              <td><%= item.userId %></td>
-
-              <td><%=format(item.createdAt,"dd MMMM yyyy") %></td>
-              <td><%=format(item.updatedAt,"dd MMMM yyyy") %></td>
-
-              <td>
-                <a href="/panel/admin/<%=item.id%>/edit "
-                  ><button class="btn btn-dark mx-2 mb-2">Edit</button></a
-                >
-
-                <a href="/panel/admin/<%=item.id%>/destroy/"
-                  ><button type="button" class="btn btn-danger">Delete</button></a
-                >
-              </td>
-              <% } %> <% } %>
-            </tr>
-          </tbody>
-        </table>
+        <h2 class="d-inline">Panel del administrador</h2>
       </div>
     </section>
+
+    <section class="container">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button
+            class="nav-link active text-secondary"
+            id="nav-home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-home"
+            type="button"
+            role="tab"
+            aria-controls="nav-home"
+            aria-selected="true"
+          >
+            Users
+          </button>
+          <button
+            class="nav-link text-secondary"
+            id="nav-profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-profile"
+            type="button"
+            role="tab"
+            aria-controls="nav-profile"
+            aria-selected="false"
+          >
+            Articles
+          </button>
+        </div>
+      </nav>
+    </section>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-home"
+        role="tabpanel"
+        aria-labelledby="nav-home-tab"
+        tabindex="0"
+      >
+        <%- include('../panel/tableUsers.ejs') %>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-profile"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+        tabindex="0"
+      >
+        <%- include('../panel/tableArticles.ejs') %>
+      </div>
+    </div>
 
     <%-include("../partials/footer") %>
 

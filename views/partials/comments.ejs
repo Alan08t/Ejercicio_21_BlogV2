@@ -1,12 +1,16 @@
 <% for (const comment of comments) { %>
-<div class="row rounded gy-2 bg-dark bg-gradient my-3 py-2 mx-auto">
-  <div class="col-2">
-    <img src="<%= comment.user.avatar  %>" class="img-fluid rounded-circle" alt="img-avatar" />
+<div class="row rounded gy-2 my-3 py-2 mx-auto justify-content-evenly">
+  <div class="col-2 d-flex justify-content-start align-items-start ps-0">
+    <img src="<%= comment.user.avatar  %>" class="img-fluid rounded-5" alt="img-avatar" />
   </div>
-  <div class="col-10 text-white">
-    <h5><%= comment.user.firstname%></h5>
+  <div class="col-10 mt-4 text-white bg-dark bg-gradient p-3 rounded">
+    <div class="arrow bg-dark position-absolute bg-gradient z-n1"></div>
+
+    <h5 class="fs-3"><%= comment.user.firstname%></h5>
+    <p class="fw-lighter p-2 bg-secondary rounded-2 my-2 fs-4"><%= comment.content %></p>
+    <hr class="bg-secondary" />
+
     <small class="fst-italic"><%= formatDistance(new Date(),comment.createdAt) %></small>
-    <p class="fw-light"><%= comment.content %></p>
   </div>
 </div>
 <% } %>

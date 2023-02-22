@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%-include("../partials/navbar") %>
+    <section class="container">
+      <form class="my-5" action="/usuarios/registrar" method="post">
+        <div class="form-group row g-4 justify-content-between">
+          <div class="col-md-6 form-group">
+            <label class="form-label" for="firstname">Nombre</label>
+
+            <input
+              placeholder="Ingrese su nombre"
+              type="text"
+              id="firstname"
+              name="firstname"
+              required
+              class="form-control form-control-lg"
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="form-label" for="lastname">Apellido</label>
+
+            <input
+              placeholder="Ingrese su apellido"
+              type="text"
+              id="lastname"
+              name="lastname"
+              required
+              class="form-control form-control-lg"
+            />
+          </div>
+
+          <div class="col-12 form-group">
+            <label class="form-label" for="email">Correo electronico</label>
+
+            <input
+              placeholder="Ingrese su correo electronico"
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="form-control form-control-lg"
+            />
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label class="form-label" for="username">Usuario</label>
+
+            <input
+              placeholder="Ingrese el nombre de usuario que desea"
+              type="text"
+              id="username"
+              name="username"
+              required
+              class="form-control form-control-lg"
+            />
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label class="form-label" for="password">Contraseña</label>
+
+            <input
+              placeholder="Ingrese su contraseña"
+              type="password"
+              name="password"
+              id="password"
+              required
+              class="form-control form-control-lg"
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="form-label" for="passwordRepeat">Repita la contraseña</label>
+
+            <input
+              placeholder="Repita su contraseña"
+              type="password"
+              name="passwordRepeat"
+              id="passwordRepeat"
+              required
+              class="form-control form-control-lg"
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="form-label" for="birthdayDate">Fecha de cumpleaños</label>
+
+            <input
+              type="date"
+              name="birthdayDate"
+              id="birthdayDate"
+              required
+              class="form-control form-control-lg"
+            />
+          </div>
+
+          <div class="col form-group justify-content-end align-items-center d-flex py-2">
+            <button type="submit" class="btn btn-success btn-lg">Registrar</button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <%-include("../partials/footer") %>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

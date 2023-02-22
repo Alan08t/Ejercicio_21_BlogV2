@@ -65,14 +65,7 @@ body{
 }
 
 body {
-  background: rgb(214, 214, 214);
-  background: linear-gradient(
-    90deg,
-    rgba(214, 214, 214, 1) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(214, 214, 214, 1) 100%
-  );
-}
+background: linear-gradient(90deg, rgba(214, 214, 214, 1) 0%, rgba(246, 246, 246, 1) 50%, rgba(214, 214, 214, 1) 100%);}
 
 /*/----css*footer--*/
 
@@ -193,10 +186,7 @@ footer {
   width: 100%;
   background: #212529;
   color: #fff;
-  padding: 50px 0 30px;
   font-size: 13px;
-  line-height: 20px;
-  margin-top: auto;
 }
 
 .footer_logo {
@@ -317,4 +307,50 @@ footer .copyright {
   100% {
     left: 100%;
   }
+}
+
+
+
+.arrow::after {
+  content:'';
+  position: relative;
+  display: block;
+  background: #212529;
+  opacity: .9;
+  width: 25px;
+  height: 25px;
+  left: -1.5rem;
+  top: -25%;
+  bottom: -25%;
+  transform: rotate(45deg);
+  z-index: -9;
+  border-radius: 5px;
+}
+
+
+.btn-close {
+    position: absolute;
+    content: '';
+      display: block;
+      right: 8px;
+      top: 0px;
+
+}
+
+
+.message {
+  bottom: 3rem;
+    position: absolute;
+    right: 2rem;
+    z-index: 9999;
+    animation-name: messageErase;
+    animation-duration: 3s;
+    animation-iteration-count: 0;
+  
+}
+
+@keyframes messageErase {
+  0% {opacity: 1;}
+  100%{opacity: 0;}
+  
 }

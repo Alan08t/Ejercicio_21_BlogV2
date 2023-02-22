@@ -1,16 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/articleController");
+const userController = require("../controllers/userController");
+const isAuthenticatedAdmin = require("../middlewares/isAuthenticatedAdmin");
 
 // Rutas relacionadas a los usuarios:
 // ...
 
-router.get("/", userController.index);
-router.get("/crear", userController.create);
-router.get("/", userController.store);
+router.get("/login", userController.index);
+router.post("/login", userController.login);
+router.get("/registrar", userController.register);
+router.post("/registrar", userController.store);
 router.get("/:id", userController.show);
-router.get("/:id/editar", userController.edit);
-router.get("/:id", userController.update);
-router.get("/:id", userController.destroy);
+
+router.get("/:id/editar", isAuthenticatedAdmin, userController.edit);
+router.post("/:id/actualizar", isAuthenticatedAdmin, userController.update);
+router.get("/:id/eliminar", isAuthenticatedAdmin, userController.destroy);
 
 module.exports = router;

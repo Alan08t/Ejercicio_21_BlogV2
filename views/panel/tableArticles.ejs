@@ -1,0 +1,43 @@
+<section class="container">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover border shadow mt-5">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Titulo</th>
+          <th scope="col ">Content</th>
+          <th scope="col">Image</th>
+          <th scope="çol">UserID</th>
+          <th scope="çol">CreatedAt</th>
+          <th scope="çol">UpdatedAt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(item of articles) { %> <% if (locals.user.roleId === 4) { %>
+        <tr>
+          <th scope="row"><%= item.id %></th>
+          <td><%= item.title %></td>
+          <td><%= item.content.slice(0, 100) %>...</td>
+          <td><%= item.image %></td>
+          <td><%= item.userId %></td>
+
+          <td><%=format(item.createdAt,"dd MMMM yyyy") %></td>
+          <td><%=format(item.updatedAt,"dd MMMM yyyy") %></td>
+
+          <td>
+            <a href="/articulos/<%=item.id%>/editar "
+              ><button class="btn btn-dark w-100">
+                Edit <ion-icon name="create-outline"></ion-icon></button
+            ></a>
+
+            <a href="/articulos/<%=item.id%>/destroy"
+              ><button type="button" class="btn btn-danger w-100">
+                Delete <ion-icon name="trash-outline"></ion-icon></button
+            ></a>
+          </td>
+        </tr>
+        <% } %><% } %>
+      </tbody>
+    </table>
+  </div>
+</section>
